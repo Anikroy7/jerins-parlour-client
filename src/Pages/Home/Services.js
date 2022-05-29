@@ -24,7 +24,7 @@ const Services = () => {
                     ></ServiceDetail>)
                 }
             </div>
-            <div className='text-center'>
+            <div className='text-center mt-7'>
                 <button class="btn btn-sm px-6 btn-secondary">Explore more</button>
             </div>
         </div >
