@@ -7,7 +7,9 @@ const Banner = () => {
             <div class="hero-content flex-col lg:flex-row-reverse ml-4">
                 <img src={girl} class="max-w-sm rounded-lg shadow-2xl" />
                 <div>
-                    <h1 class="text-5xl font-bold uppercase">Beauty selon <br /> for ever women</h1>
+                    <h1 class="text-5xl font-bold uppercase">
+                        <p className=''>Beauty selon </p>
+                        <p className='mt-4'>for ever women</p></h1>
                     <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                     <button class="btn btn-secondary">Get an Appointment</button>
                 </div>
