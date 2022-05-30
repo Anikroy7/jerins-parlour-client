@@ -5,7 +5,7 @@ const Profession = () => {
     return (
         <div class="hero min-h-screen bg-red-50 mt-20 p-10">
             <div class="hero-content flex-col lg:flex-row">
-                <img className='mr-16 mb-8' style={{ height: '300px' }} src={makeup} class="max-w-sm rounded-lg shadow-2xl" alt='iamge' />
+                <img className='mb-8' style={{ height: '300px', marginRight: '50px' }} src={makeup} class="max-w-sm rounded-lg shadow-2xl" alt='' />
                 <div>
                     <h1 class="text-4xl font-bold ">
                         <p className=''>Let us handel your  </p>
@@ -20,10 +20,8 @@ const Profession = () => {
 
                         </div>
                         <div class="stat bg-red-50">
-
                             <div class="stat-value text-secondary mb-6">16 +</div>
                             <div class="stat-title">Total Service</div>
-
                         </div>
 
 
