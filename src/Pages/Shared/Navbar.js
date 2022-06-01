@@ -1,5 +1,6 @@
 import React from 'react';
-import { NavLink } from "react-router-dom"; import logo from '../../Image/Group 33092.png'
+import { NavLink } from "react-router-dom";
+import logo from '../../Image/Group 33092.png'
 
 const Navbar = () => {
     const menuItems = <>
@@ -8,12 +9,11 @@ const Navbar = () => {
         <li><NavLink to={'/portfolio'} className={({ isActive }) => (isActive ? 'btn btn-secondary text-yellow-50 bg-secondary' : undefined)}>Our Porfolio</NavLink></li>
         <li><NavLink to={'/ourteam'} className={({ isActive }) => (isActive ? 'btn btn-secondary text-yellow-50 bg-secondary' : undefined)}>Our Team</NavLink></li>
         <li><NavLink to={'/contactus'} className={({ isActive }) => (isActive ? 'btn btn-secondary text-yellow-50 bg-secondary' : undefined)}>Contact us</NavLink></li>
-        <li><NavLink to={'/login'} className={({ isActive }) => (isActive ? 'btn btn-secondary text-yellow-50 bg-secondary' : undefined)}>Login</NavLink></li>
-        <li><NavLink to={'/signup'} className={({ isActive }) => (isActive ? 'btn btn-secondary text-yellow-50 bg-secondary' : undefined)}>Sign up</NavLink></li>
+
 
     </>
     return (
-        <div class="navbar px-10 bg-red-50 pt-10">
+        <div class="navbar px-10 bg-red-50 pt-10 pb-10">
             <div class="navbar-start">
                 <div class="dropdown">
                     <label tabindex="0" class="btn btn-ghost lg:hidden">
@@ -31,9 +31,11 @@ const Navbar = () => {
                 </ul>
             </div>
 
+            <div className='navbar-end px-5'>
+                <a className='mr-3 font-semibold'><NavLink to={'/login'} className={({ isActive }) => (isActive ? 'btn btn-secondary text-yellow-50 bg-secondary' : undefined)}>Login</NavLink></a>
+                <a className='font-semibold text-slate-600'><NavLink to={'/signup'} className={({ isActive }) => (isActive ? 'btn btn-secondary text-yellow-50 bg-secondary' : undefined)}>Sign up</NavLink></a>
 
-
-
+            </div>
         </div>
     );
 };
