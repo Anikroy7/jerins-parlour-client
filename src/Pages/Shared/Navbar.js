@@ -1,20 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import logo from '../../Image/Group 33092.png'
+import { NavLink } from "react-router-dom"; import logo from '../../Image/Group 33092.png'
 
 const Navbar = () => {
     const menuItems = <>
 
-        <li><Link to={'/home'}>Home</Link></li>
-        <li><Link to={'/home'}>Our Porfolio</Link></li>
-        <li><Link to={'/home'}>Our Team</Link></li>
-        <li><Link to={'/home'}>Contact us</Link></li>
-        <li><Link to={'/login'} class="btn btn-secondary text-yellow-50">Login</Link></li>
-        <li><Link to={'/signup'}>Sign up</Link></li>
+        <li><NavLink to={'/home'} className={({ isActive }) => (isActive ? 'btn btn-secondary bg-secondary text-yellow-50' : undefined)}>Home</NavLink></li>
+        <li><NavLink to={'/portfolio'} className={({ isActive }) => (isActive ? 'btn btn-secondary text-yellow-50 bg-secondary' : undefined)}>Our Porfolio</NavLink></li>
+        <li><NavLink to={'/ourteam'} className={({ isActive }) => (isActive ? 'btn btn-secondary text-yellow-50 bg-secondary' : undefined)}>Our Team</NavLink></li>
+        <li><NavLink to={'/contactus'} className={({ isActive }) => (isActive ? 'btn btn-secondary text-yellow-50 bg-secondary' : undefined)}>Contact us</NavLink></li>
+        <li><NavLink to={'/login'} className={({ isActive }) => (isActive ? 'btn btn-secondary text-yellow-50 bg-secondary' : undefined)}>Login</NavLink></li>
+        <li><NavLink to={'/signup'} className={({ isActive }) => (isActive ? 'btn btn-secondary text-yellow-50 bg-secondary' : undefined)}>Sign up</NavLink></li>
 
     </>
     return (
-        <div class="navbar px-10 bg-red-50 font-  pt-10">
+        <div class="navbar px-10 bg-red-50 pt-10">
             <div class="navbar-start">
                 <div class="dropdown">
                     <label tabindex="0" class="btn btn-ghost lg:hidden">

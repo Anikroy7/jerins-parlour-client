@@ -23,7 +23,7 @@ const Testimonials = () => {
                     ></ReviewDetails>)
                 }
             </div>
-        </div>
+        </div >
     );
 };
 

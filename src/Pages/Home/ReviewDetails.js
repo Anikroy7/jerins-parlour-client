@@ -3,9 +3,8 @@ import React from 'react';
 const ReviewDetails = ({ review }) => {
     const { name, work, image, description, ratings } = review;
     return (
-        <div class="card w-full bg-base-100 shadow-xl px-3">
+        <div class="card bg-base-100 shadow-xl px-3">
             <div class="card-body">
-
                 <div class="flex">
                     <div class="w-14 ">
                         <img src={image} alt="imageddd" />

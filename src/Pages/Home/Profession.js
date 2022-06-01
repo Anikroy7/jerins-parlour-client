@@ -5,8 +5,12 @@ const Profession = () => {
     return (
         <div class="hero min-h-screen bg-red-50 mt-20 p-10">
             <div class="hero-content flex-col lg:flex-row">
-                <img className='mb-8' style={{ height: '300px', marginRight: '50px' }} src={makeup} class="max-w-sm rounded-lg shadow-2xl" alt='' />
-                <div>
+                <img data-aos="flip-left"
+                    data-aos-easing="ease-out-cubic"
+                    data-aos-duration="2000" className='mb-8' style={{ height: '300px', marginRight: '50px' }} src={makeup} class="max-w-sm rounded-lg shadow-2xl" alt='' />
+                <div data-aos="flip-right"
+                    data-aos-easing="ease-out-cubic"
+                    data-aos-duration="2000">
                     <h1 class="text-4xl font-bold ">
                         <p className=''>Let us handel your  </p>
                         <p className=''>for <span className='text-secondary'>Professionally</span></p></h1>

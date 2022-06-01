@@ -1,4 +1,5 @@
 import React from 'react';
+import Swiper from 'swiper';
 import Banner from './Banner';
 import Profession from './Profession';
 import Services from './Services';
@@ -13,6 +14,7 @@ const Home = () => {
             <Profession></Profession>
             <Testimonials></Testimonials>
             <SubmitForm></SubmitForm>
+
         </div>
     );
 };

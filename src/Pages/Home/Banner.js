@@ -5,8 +5,16 @@ const Banner = () => {
     return (
         <div class="hero min-h-screen mt-0 bg-red-50 px-10">
             <div class="hero-content flex-col lg:flex-row-reverse ml-4">
-                <img src={girl} class="max-w-sm rounded-lg shadow-2xl" />
-                <div>
+                <img data-aos="fade-up"
+                    data-aos-offset="200"
+                    data-aos-delay="50"
+                    data-aos-duration="1000"
+                    data-aos-easing="ease-in-out" src={girl} class="max-w-sm rounded-lg shadow-2xl" alt='' />
+                <div data-aos="fade-down"
+                    data-aos-offset="200"
+                    data-aos-delay="50"
+                    data-aos-duration="1000"
+                    data-aos-easing="ease-in-out">
                     <h1 class="text-5xl font-bold uppercase">
                         <p className=''>Beauty selon </p>
                         <p className='mt-4'>for ever women</p></h1>
