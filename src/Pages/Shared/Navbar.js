@@ -1,8 +1,21 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { NavLink } from "react-router-dom";
+import auth from '../../firebase.init';
 import logo from '../../Image/Group 33092.png'
+import Loading from './Loading';
 
 const Navbar = () => {
+    const [user, loading] = useAuthState(auth);
+
+    if (loading) {
+        return <Loading></Loading>
+    }
+
+
+
+
     const menuItems = <>
 
         <li><NavLink to={'/home'} className={({ isActive }) => (isActive ? 'btn btn-secondary bg-secondary text-yellow-50' : undefined)}>Home</NavLink></li>
@@ -13,7 +26,7 @@ const Navbar = () => {
 
     </>
     return (
-        <div class="navbar px-10 bg-red-50 pt-10 pb-10">
+        <div class="navbar px-10 bg-red-50 pt-10 pb-10 flex">
             <div class="navbar-start">
                 <div class="dropdown">
                     <label tabindex="0" class="btn btn-ghost lg:hidden">
@@ -32,7 +45,38 @@ const Navbar = () => {
             </div>
 
             <div className='navbar-end px-5'>
-                <a className='mr-3 font-semibold'><NavLink to={'/login'} className={({ isActive }) => (isActive ? 'btn btn-secondary text-yellow-50 bg-secondary' : undefined)}>Login</NavLink></a>
+
+
+                {
+                    user ? <div>
+                        <div class="dropdown dropdown-end mr-3">
+                            <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+                                <div class="w-10 rounded-full">
+                                    <img src={user?.photoURL} alt='im' />
+                                </div>
+                            </label>
+
+                            <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                                <li>
+                                    <a class="justify-between">
+                                        Profile
+                                        <span class="badge">New</span>
+                                    </a>
+                                </li>
+                                <li><a>Settings</a></li>
+                                <li onClick={() => signOut(auth)}><a>Logout</a></li>
+                            </ul>
+                        </div>
+
+                    </div> : <a className='font-semibold mr-5'><NavLink to={'/login'} className={({ isActive }) => (isActive ? 'btn btn-secondary text-yellow-50 bg-secondary' : undefined)}>Login</NavLink></a>}
+
+
+
+                {
+                    user && <a className='font-semibold text-slate-600 mr-3'>{user?.displayName}</a>
+                }
+
+
                 <a className='font-semibold text-slate-600'><NavLink to={'/signup'} className={({ isActive }) => (isActive ? 'btn btn-secondary text-yellow-50 bg-secondary' : undefined)}>Sign up</NavLink></a>
 
             </div>
