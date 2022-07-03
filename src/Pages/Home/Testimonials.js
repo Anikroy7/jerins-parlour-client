@@ -13,6 +13,7 @@ import { Pagination, Navigation } from "swiper";
 
 const Testimonials = () => {
     const [reviews, setReviews] = useState([]);
+    console.log(reviews);
 
 
     useEffect(() => {

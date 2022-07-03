@@ -2,12 +2,19 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import { toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+
 ;
 
 const ServiceDetail = ({ service }) => {
     const { name, price, description, image } = service;
+    console.log(service);
+    const [user] = useAuthState(auth);
+    const email = user?.email;
     const orderedItem = {
-        name, price, description, image
+        name, price, description, image, email
     }
     const handelBooking = () => {
         fetch('http://localhost:5000/order', {
@@ -23,9 +30,7 @@ const ServiceDetail = ({ service }) => {
                 if (data.upsertedCount > 0) {
                     toast.success('Your order is added on booklist')
                 }
-                else (
-                    toast.error('Your Order is already added')
-                )
+
             })
     }
     return (
@@ -47,7 +52,9 @@ const ServiceDetail = ({ service }) => {
 
                     <p className='text-xl font-bold mb-3'>{name}</p>
                     <p className='text-slate-600'>{description}</p>
-                    <p><button onClick={handelBooking} className='btn btn-sm btn-secondary mt-5'><FontAwesomeIcon className='mr-4' icon={faShoppingCart}></FontAwesomeIcon>Book Now</button></p>
+                    <p><button onClick={handelBooking} className='btn btn-sm btn-secondary mt-5'><FontAwesomeIcon className='mr-4' icon={faShoppingCart}></FontAwesomeIcon>
+                        <Link to={`/dashboard/${service._id}`}>Book Now</Link>
+                    </button></p>
                 </div>
 
             </div>

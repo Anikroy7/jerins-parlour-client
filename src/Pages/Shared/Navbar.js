@@ -8,6 +8,7 @@ import Loading from './Loading';
 
 const Navbar = () => {
     const [user, loading] = useAuthState(auth);
+    console.log(user?.photoURL);
 
     if (loading) {
         return <Loading></Loading>
@@ -19,7 +20,7 @@ const Navbar = () => {
     const menuItems = <>
 
         <li><NavLink to={'/home'} className={({ isActive }) => (isActive ? 'btn btn-secondary bg-secondary text-yellow-50' : undefined)}>Home</NavLink></li>
-        <li><NavLink to={'/portfolio'} className={({ isActive }) => (isActive ? 'btn btn-secondary text-yellow-50 bg-secondary' : undefined)}>Our Porfolio</NavLink></li>
+        {/* <li><NavLink to={'/dashboard/:id'} className={({ isActive }) => (isActive ? 'btn btn-secondary text-yellow-50 bg-secondary' : undefined)}>My Dashboard</NavLink></li> */}
         <li><NavLink to={'/ourteam'} className={({ isActive }) => (isActive ? 'btn btn-secondary text-yellow-50 bg-secondary' : undefined)}>Our Team</NavLink></li>
         <li><NavLink to={'/contactus'} className={({ isActive }) => (isActive ? 'btn btn-secondary text-yellow-50 bg-secondary' : undefined)}>Contact us</NavLink></li>
 
@@ -52,7 +53,7 @@ const Navbar = () => {
                         <div class="dropdown dropdown-end mr-3">
                             <label tabindex="0" class="btn btn-ghost btn-circle avatar">
                                 <div class="w-10 rounded-full">
-                                    <img src={user?.photoURL} alt='im' />
+                                    <img src={user?.photoURL || 'https://cached.imagescaler.hbpl.co.uk/resize/scaleWidth/815/cached.offlinehbpl.hbpl.co.uk/news/SUC/color1-20191204062437970.jpg'} alt='img' />
                                 </div>
                             </label>
 
