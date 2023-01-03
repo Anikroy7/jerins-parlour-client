@@ -6,7 +6,13 @@ import DashboardNavbar from './DashboardNavbar';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import creadit from '../../Icon/credit-card 1.png';
-import paypal from '../../Icon/image 17.png'
+import paypal from '../../Icon/image 17.png';
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
+import CheckoutForm from './CheckoutForm';
+
+
+const stripePromise = loadStripe('pk_test_51ML3SDDzQTpn1KdsfN3Lhg2V1hn9DfT5wwbwKDrVBexAs0ahrjnf1udo7LuYeAadI0i97SwAkRtSiWGpgBhbSb5o00EH9J5rMD');
 
 const Book = () => {
     const [user] = useAuthState(auth);
@@ -50,18 +56,18 @@ const Book = () => {
                                 </span>
                             </div>
                         </div>
-                        <input type="text" placeholder='Card number' class="input text-slate-600 w-96 ml-4 mt-8" />
+                        {/*   <input type="text" placeholder='Card number' class="input text-slate-600 w-96 ml-4 mt-8" />
                         <div className='flex items-center gap-4 w-96 ml-4 mt-3'>
                             <input type="text" placeholder="Type here" class="input w-full max-w-xs" />
                             <input type="text" placeholder="Type here" class="input w-full max-w-xs" />
-                        </div>
-                        <div className=' ml-4 mt-5 w-96 flex items-center justify-between'>
-                            <span className='font-bold'>Your Service charged will be ${order?.price}</span>
-                            <button class="btn px-10 btn-secondary">Pay</button>
-                        </div>
+                        </div> */}
+                        <div className='font-bold mt-3 mx-5 py-5'>Your Service charged will be ${order?.price}</div>
+                        <Elements className='' stripe={stripePromise}>
+                            <CheckoutForm order={order} />
+                        </Elements>
+
                     </form>
                 </div>
-
             </div>
 
         </section>
